@@ -1,4 +1,4 @@
-# my-azerothcore-settings
+# azerothcore-scripts
 Settings and docs for azerothcore with playerbots
 
 ## Server settings
