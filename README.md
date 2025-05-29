@@ -7,19 +7,13 @@ Settings and docs for azerothcore with playerbots
 - [mod-playerbots](https://www.azerothcore.org/catalogue#/details/138432861)
 - [mod-ah-bot](https://www.azerothcore.org/catalogue#/details/646926161)
 
-### Environment variables:
-
-#### Make sure these are available for scripts
-
-```
-BUILD_CORES= # Amount of cores on build. Use `nproc --all` to see cores available.
-AC_CODE_DIR=$HOME/azerothcore-wotlk # Azerothcore root directory
-DATA_DIR=$HOME/azerothcore-wotlk/build/data # Azerothcode data file
-```
-
 ### Overral setup:
 
+- Set .env.
+
 - First build: create a `~/azerothcore/build/` folder and copy build.sh into it then run it.
+
+- Conf files usually go under `~/azerothcore/build/env/dist/etc` copy those over there (there should be some `.dist.conf` files there already. If not, it should be elsewhere). Don't forget to set to set `DataDir` to `"<full_path_to_source_code_dir>/build/data"`, because I'm lazy and didn't find a way to make the env var work.
 
 - Auth- and worldserver scripts under `~/azerothcore/build/src/server/apps`
 
@@ -27,11 +21,12 @@ DATA_DIR=$HOME/azerothcore-wotlk/build/data # Azerothcode data file
 
 ### Updates:
 
-To update, `git pull` then `cd build` and `. ./build.sh` 
+To update, `git pull` on the server dir and run `build.sh` here. 
 
 ### Scripts:
 
+- `build.sh`: Builds the server;
 - `start-azeroth.sh`: Starts auth- and worldserver on tmux sessions;
 - `stop-azeroth.sh`: Graciously stops each server;
 - `stop-world.sh` and `stop-auth.sh`: Graciously stops respective servers;
-- `attach-world.sh` and `attach-auth.sh`: Attaches to the respective tmux sessions;
+- `attach-world.sh` and `attach-auth.sh`: Attaches to the respective tmux sessions.
