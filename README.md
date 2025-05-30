@@ -1,5 +1,5 @@
 # azerothcore-scripts
-Settings and docs for azerothcore with playerbots
+Settings, docs and scripts for azerothcore with playerbots
 
 ## Server settings
 
@@ -29,4 +29,8 @@ To update, `git pull` on the server dir and run `build.sh` here.
 - `start-azeroth.sh`: Starts auth- and worldserver on tmux sessions;
 - `stop-azeroth.sh`: Graciously stops each server;
 - `stop-world.sh` and `stop-auth.sh`: Graciously stops respective servers;
-- `attach-world.sh` and `attach-auth.sh`: Attaches to the respective tmux sessions.
+- `attach-world.sh` and `attach-auth.sh`: Attaches to the respective tmux sessions;
+- `start-world.sh` and `start-auth.sh`: Starts respective server;
+- `backup-databases.sh`: Create db backups based on set environment variables;
+- `restore-databases.sh`: Restores db backups based on set environment variables;
+- `list-backups.sh`: Lists existing backups on `BACKUP_DIR` with datetime and size.
