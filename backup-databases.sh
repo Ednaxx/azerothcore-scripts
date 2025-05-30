@@ -11,6 +11,25 @@ else
     exit 1
 fi
 
+# Check if servers are running
+SERVERS_RUNNING=false
+if tmux has-session -t "$AUTH_SESSION" 2>/dev/null; then
+    echo "⚠ Warning: authserver is running (session: $AUTH_SESSION)"
+    SERVERS_RUNNING=true
+fi
+
+if tmux has-session -t "$WORLD_SESSION" 2>/dev/null; then
+    echo "⚠ Warning: worldserver is running (session: $WORLD_SESSION)"
+    SERVERS_RUNNING=true
+fi
+
+if [ "$SERVERS_RUNNING" = true ]; then
+    echo ""
+    echo "✗ Cannot backup databases while servers are running."
+    echo "  Please stop the servers first with: ./stop-azeroth.sh"
+    exit 1
+fi
+
 # Create timestamp for backup files
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 BACKUP_DATE=$(date +"%Y-%m-%d %H:%M:%S")

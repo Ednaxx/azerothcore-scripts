@@ -31,6 +31,26 @@ else
     exit 1
 fi
 
+# Check if servers are running
+SERVERS_RUNNING=false
+if tmux has-session -t "$AUTH_SESSION" 2>/dev/null; then
+    echo "⚠ Warning: authserver is running (session: $AUTH_SESSION)"
+    SERVERS_RUNNING=true
+fi
+
+if tmux has-session -t "$WORLD_SESSION" 2>/dev/null; then
+    echo "⚠ Warning: worldserver is running (session: $WORLD_SESSION)"
+    SERVERS_RUNNING=true
+fi
+
+if [ "$SERVERS_RUNNING" = true ]; then
+    echo ""
+    echo "✗ Cannot restore database while servers are running."
+    echo "  This can cause data corruption and server instability."
+    echo "  Please stop the servers first with: ./stop-azeroth.sh"
+    exit 1
+fi
+
 # Check if backup file exists
 if [ ! -f "$BACKUP_FILE" ]; then
     # Try looking in backup directory
