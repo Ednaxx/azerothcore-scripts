@@ -4,18 +4,18 @@ Settings, docs and scripts for azerothcore with playerbots
 ## Server settings
 
 ### Mods:
-- [mod-playerbots](https://www.azerothcore.org/catalogue#/details/138432861)
-- [mod-ah-bot](https://www.azerothcore.org/catalogue#/details/646926161)
+- [mod-playerbots](https://www.azerothcore.org/catalogue#/details/646926161)
+- [mod-ah-bot](https://www.azerothcore.org/catalogue#/details/138432861)
 
 ### Overral setup:
 
-- Set .env.
+- Set .env;
 
-- First build: create a `~/azerothcore/build/` folder and copy build.sh into it then run it.
+- First build: execute `build.sh`;
 
-- Conf files usually go under `~/azerothcore/build/env/dist/etc` copy those over there (there should be some `.dist.conf` files there already. If not, it should be elsewhere). Don't forget to set to set `DataDir` to `"<full_path_to_source_code_dir>/build/data"`, because I'm lazy and didn't find a way to make the env var work.
+- Conf files usually go under `~/azerothcore/env/dist/etc` copy those over there (there should be some `.conf.dist` files there already. If not, it should be elsewhere). Don't forget to set to set `DataDir` to `"<full_path_to_source_code_dir>/build/data"`, because I'm lazy and didn't find a way to make the env var work;
 
-- Auth- and worldserver scripts under `~/azerothcore/build/src/server/apps`
+- Auth- and worldserver entry scripts under `~/azerothcore/build/src/server/apps`;
 
 - Conf files at `~/azerothcore-wotlk/env/dist/etc` and module specific ones inside `modules` folder in that directory.
 
