@@ -21,6 +21,10 @@ cd "$AC_CODE_DIR" || exit 1
 mkdir -p build
 cd build || exit 1
 
+# Fix library mismatch after system upgrades
+rm -f CMakeCache.txt
+rm -rf CMakeFiles
+
 echo "Building AzerothCore with $BUILD_CORES cores..."
 echo "Install prefix: $AC_INSTALL_PREFIX"
 

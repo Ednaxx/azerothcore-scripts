@@ -3,6 +3,10 @@ Settings, docs and scripts for azerothcore with playerbots
 
 ## Server settings
 
+### Dependencies:
+
+- Mysql - Ver 8.0.45-0ubuntu0.24.04.1 for Linux on x86_64 ((Ubuntu))
+
 ### Mods:
 - [mod-playerbots](https://www.azerothcore.org/catalogue#/details/646926161)
 - [mod-ah-bot](https://www.azerothcore.org/catalogue#/details/138432861)
